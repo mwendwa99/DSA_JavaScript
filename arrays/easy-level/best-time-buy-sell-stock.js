@@ -14,3 +14,18 @@ var maxProfit = function(prices) {
 }
 
 //O(n)- time complexity
+
+//method2
+var maxProfit = function(prices) {
+    let max_profit = 0;
+    let min_price = prices[0];
+    for(let sell = 0; sell < prices.length; sell++){
+        let sell_price = prices[sell]
+        let profit = sell_price - min_price
+        max_profit = Math.max(max_profit,profit)
+        if(sell_price < min_price){
+            min_price = sell_price
+        }
+    }
+    return max_profit
+}
